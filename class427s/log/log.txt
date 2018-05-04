@@ -1,0 +1,9 @@
+20 F:/newTeacher/Django/virtual_work/class427s\stu\views.py index views 2018-05-03 15:55:46,976 获取学生信息成功
+INFO F:/newTeacher/Django/virtual_work/class427s\stu\views.py index views 2018-05-03 16:05:21,835 获取学生信息成功
+INFO F:/newTeacher/Django/virtual_work/class427s\stu\views.py index views 2018-05-03 16:49:44,495 获取学生信息成功
+INFO F:/newTeacher/Django/virtual_work/class427s\stu\views.py index views 2018-05-03 18:47:38,798 获取学生信息成功
+INFO F:/newTeacher/Django/virtual_work/class427s\stu\views.py index views 2018-05-04 08:42:04,483 获取学生信息成功
+INFO F:/newTeacher/Django/virtual_work/class427s\stu\views.py index views 2018-05-04 08:42:12,402 获取学生信息成功
+INFO F:/newTeacher/Django/virtual_work/class427s\stu\views.py index views 2018-05-04 09:32:55,757 获取学生信息成功
+INFO F:/newTeacher/Django/virtual_work/class427s\stu\views.py index views 2018-05-04 09:58:25,727 获取学生信息成功
+INFO F:/newTeacher/Django/virtual_work/class427s\stu\views.py index views 2018-05-04 10:56:10,447 获取学生信息成功

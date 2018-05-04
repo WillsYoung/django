@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>所有学生信息</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        table{
+            border: 1px solid blue;
+            border-bottom: none;
+        }
+        #stu_info td{
+            border-bottom: 1px solid blue;
+            border-right: 1px solid blue;
+        }
+        .r{
+            border-right: none !important;
+        }
+    </style>
+</head>
+<body>
+
+    <table id="stu_info">
+        <tr>
+            <td>头像</td>
+            <td>ID</td>
+            <td>姓名</td>
+            <td>电话</td>
+            <td class="r">地址</td>
+        </tr>
+
+        {% for stuinfo in stuinfos %}
+            <tr>
+            <td>
+                {% if stuinfo.i_image %}
+                    <img src="/media/{{ stuinfo.i_image }}" width="24" height="24" alt="头像">
+                {% endif %}
+            </td>
+            <td>{{ stuinfo.id }}</td>
+            <td>{{ stuinfo.s.s_name }}</td>
+            <td>{{ stuinfo.s.s_tel }}</td>
+            <td class="r">{{ stuinfo.i_addr }}</td>
+            </tr>
+        {% endfor %}
+
+    </table>
+        <h4>{% if not stuinfos.paginator.num_pages %}
+
+            {% else %}
+            一共{{ stuinfos.paginator.num_pages }}页
+            /共{{ stuinfos.paginator.count }}条数据  当前第 {{ stuinfos.number }} 页
+            
+            {% endif %}
+        </h4>
+
+        {% if stuinfos.has_previous %}
+            <a href="/s/stu_page/?page_id={{ stuinfos.previous_page_number }}">上一页</a>
+        {% endif %}
+
+
+        {% if stuinfos.has_next %}
+            <a href="/s/stu_page/?page_id={{ stuinfos.next_page_number }}">下一页</a>
+        {% endif %}
+
+        {% for i in stuinfos.paginator.page_range %}
+            <a href="/s/stu_page/?page_id={{ i }}">{{ i }}</a>
+        {% endfor %}
+
+        {% if stuinfos.paginator.num_pages %}
+
+            <input id="btn" type="button" value="跳转">
+            第 <input id="jump_input" type="text" name="jump_page" size="1" > 页
+
+            <script>
+                (function (){
+                    var btn = document.getElementById('btn');
+                    btn.addEventListener('click', function () {
+                        var page = document.getElementById('jump_input').value;
+                        if(page>=1 && page<=5){
+                            console.log(page);
+                            window.location = '/s/stu_page/?page_id=' + page ;
+                        }
+                        else {
+                            alert('请输入正确的页码')
+                        }
+                    });
+                }());
+            </script>
+        {% endif %}
+
+
+        <h4>-----------我是分割线---------------</h4>
+        {#方法一#}
+        <a href="{% url 's:add' %}">添加学生</a>
+        {#方法二#}
+        {#<a href="/s/add_stu/">添加学生</a>#}
+        <a href="/u/logout/">退出登录</a>
+
+        {% if not stuinfos.paginator.num_pages %}
+        <a href="/s/stu_page/">分页显示</a>
+        {% else %}
+        <a href="/s/index/">整体显示</a>
+        {% endif %}
+
+
+</body>
+</html>
